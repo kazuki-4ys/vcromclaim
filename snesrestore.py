@@ -48,7 +48,7 @@ def restore_brr_samples(vcrom, pcm):
 		
 		pcmf, pcmoffset = struct.unpack('<4sI', inbytes[index:index+8])
 		pcmoffset &= 0xffffff
-		if pcmoffset % 16 or pcmoffset < lastpcmoffset:
+		if pcmoffset % 16:
 			#print('%08x: unexpected offset %d' % (filepos, pcmoffset))
 			pcmoffset = lastpcmoffset + 16
 		#else:
